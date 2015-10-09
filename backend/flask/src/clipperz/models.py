@@ -87,9 +87,11 @@ class RecordVersion(db.Model):
                                                 order_by=id,
                                                 cascade='all,delete'))
 
-    def __init__(self):
+    def __init__(self, record=None):
         """Initialize a record version."""
         self.creation_date = datetime.datetime.utcnow()
+        if record:
+            self.record = record
 
     def update(self, someData):
         """Update a record version."""
@@ -128,9 +130,11 @@ class Record(db.Model):
         uselist=False,
         cascade='save-update, merge, delete, delete-orphan')
 
-    def __init__(self):
+    def __init__(self, user=None):
         """Initialize a record."""
         self.creation_date = datetime.datetime.utcnow()
+        if user:
+            self.user = user
 
     def update(self, data, record_version):
         """Update a record."""

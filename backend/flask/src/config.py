@@ -24,6 +24,7 @@ class Config(object):
     WTF_CSRF_ENABLED = True
     SECRET_KEY = 'you-will-never-guess'
     sessionTimeout = datetime.timedelta(minutes=-2)
+    SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI
 
 
 class DevelopmentConfig(Config):
